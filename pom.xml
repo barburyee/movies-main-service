@@ -15,6 +15,9 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<!--		Added Below for Eureka Client-->
+		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+		<!--		Added Above for Eureka Client-->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -25,7 +28,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-
+		<!--		Added Below Dependency for Eureka Client-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!--		Added Above Dependency for Eureka Client-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -37,6 +45,19 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<!--		Added Below Dependency Management for Eureka Client-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!--	Added Above for Dependency Management of Eureka Client-->
 
 	<build>
 		<plugins>
